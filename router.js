@@ -16,7 +16,7 @@ export function createRouter() {
       },
       {
         name: 'about',
-        path: '/company/about-us',
+        path: '/about',
         component: About
       }
     ]
