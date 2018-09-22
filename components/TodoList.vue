@@ -1,23 +1,18 @@
 <template>
-  <ul class="list-group">
-    <li class="list-group-item">
-      <form>
-        <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" id="done">
-          <label class="form-check-label" for="done">Купить хлеб</label>
-        </div>
-        <!--<button type="submit" class="btn btn-primary">Submit</button>-->
-      </form>
-    </li>
+  <ul class="list-group mt-4">
+    <TodoItem/>
+    <TodoItem/>
+    <TodoItem/>
+    <TodoItem/>
+    <TodoItem/>
+    <TodoItem/>
   </ul>
 </template>
 
 <script>
-    export default {
-        name: "TodoList"
-    }
+  import TodoItem from "./TodoItem";
+  export default {
+    name: "TodoList",
+    components: { TodoItem }
+  }
 </script>
-
-<style scoped>
-
-</style>
