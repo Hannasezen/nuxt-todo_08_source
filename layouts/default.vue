@@ -1,16 +1,9 @@
 <template>
-  <div>
+  <div class="container">
     <header>
-      Header
-      <div>
-        <nuxt-link :to="{ name: 'home' }">Home</nuxt-link><br>
-        <nuxt-link :to="{ name: 'about' }">About</nuxt-link>
-      </div>
+      <h1 class="center-text">TODO LIST</h1>
     </header>
     <nuxt/>
-    <footer>
-      Footer
-    </footer>
   </div>
 </template>
 
