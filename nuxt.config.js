@@ -1,5 +1,5 @@
-const pkg = require('./package')
-
+const pkg = require('./package');
+const https = require('https');
 module.exports = {
   mode: 'universal',
 
@@ -34,6 +34,7 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    { src: '~/plugins/cookiesStorage.js', ssr: true }
   ],
 
   /*
@@ -42,13 +43,47 @@ module.exports = {
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
+    '@nuxtjs/auth',
     '@nuxtjs/router'
   ],
   /*
   ** Axios module configuration
   */
   axios: {
-    // See https://github.com/nuxt-community/axios-module#options
+    baseURL: 'http://localhost:3000',
+    browserBaseURL: 'http://localhost:3000',
+    proxy: true,
+    https: true,
+    progress: false,
+    retry: { retries: 1 }
+  },
+  proxy: {
+    '/posts': {
+      target: 'https://jsonplaceholder.typicode.com' ,
+      secure: true,
+      agent: new https.Agent({ rejectUnauthorized: false })
+    }
+  },
+  auth: {
+    redirect: {
+      login: '/',
+      logout: '/',
+      callback: '/',
+    },
+    strategies: {
+      local: {
+        response_type: 'token',
+        token_type: 'Bearer',
+        token_key:  'access_token'
+      },
+      google: {
+        client_id: '297413951000-n32odbj9fp6hkti3k4q0drqk5d19d5su.apps.googleusercontent.com',
+        scope: ['openid', 'profile', 'email'],
+        response_type: 'token',
+        token_type: 'Bearer',
+        token_key:  'access_token'
+      }
+    }
   },
 
   /*

@@ -6,16 +6,13 @@
 
 <script>
   import TodoItem from "./TodoItem";
-
+  import { mapGetters } from 'vuex';
+  
   export default {
     name: "TodoList",
     components: { TodoItem },
-    props: {
-      items: {
-        type: Array,
-        required: true,
-        defaultValue: []
-      }
-    }
+    computed: mapGetters({
+      items: 'Todo/getTodoList'
+    })
   }
 </script>

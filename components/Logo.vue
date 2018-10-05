@@ -59,7 +59,6 @@
   border-right: 35px solid transparent;
   border-bottom: 60px solid #fff;
 }
-
 @keyframes turn {
   100% {
     transform: rotateX(0deg);
