@@ -60,19 +60,27 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+  @import '../assets/scss/vars';
+
   .controls .btn-danger {
     margin-left: 10px;
-  }
-  .list-group-item form {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+    background: $danger-color;
+
+    &:hover {
+      background: lighten($danger-color, 30%);
+    }
   }
   .list-group-item {
     margin-top: 5px;
     margin-bottom: 5px;
+    
+    form {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
   }
   .form-group {
     margin-bottom: 0;
@@ -80,8 +88,9 @@
   .form-check-label {
     margin-bottom: 0;
     margin-left: 20px;
-  }
-  .form-check-label.done {
-    text-decoration: line-through;
+
+    &.done {
+      text-decoration: line-through;
+    }
   }
 </style>
